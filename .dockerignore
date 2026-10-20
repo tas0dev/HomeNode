@@ -1,0 +1,8 @@
+.git
+build
+secrets
+data
+config.yaml
+agent.yaml
+node_modules
+web/node_modules

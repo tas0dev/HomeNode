@@ -1,0 +1,15 @@
+server_url: https://homenode.example-tailnet.ts.net
+agent_id: desktop
+secrets_dir: C:/ProgramData/HomeNode/secrets
+network_interface: Ethernet
+heartbeat_interval: 5s
+reachability_timeout: 15s
+telemetry_interval: 1s
+reconnect_max: 30s
+sunshine_port: 47989
+tailnet_address: desktop.example-tailnet.ts.net
+gpu_model: AMD Radeon RX 7700 XT
+# LibreHardwareMonitor HTTP server must bind to 127.0.0.1, not LAN addresses.
+# Keep empty when no optional hardware sensor provider is installed.
+sensor_url: ''
+sensors: {}
