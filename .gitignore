@@ -1,0 +1,9 @@
+/build/
+/secrets/
+/data/
+/config.yaml
+/agent.yaml
+*.dpapi
+/node_modules/
+/web/node_modules/
+*.tmp

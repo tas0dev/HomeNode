@@ -1,0 +1,29 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: deploy/docker/Dockerfile
+    network_mode: host
+    restart: unless-stopped
+    user: '10001:10001'
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - ./config.yaml:/etc/homenode/config.yaml:ro
+      - ./secrets:/run/secrets/homenode:ro
+      - ./data:/data
+    tmpfs:
+      - /tmp:size=8m,noexec,nosuid,nodev
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1:8080/api/v1/health']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: 2m
+        max-file: '2'
