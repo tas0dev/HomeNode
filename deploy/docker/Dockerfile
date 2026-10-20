@@ -1,6 +1,6 @@
 FROM node:24-alpine AS web
 WORKDIR /src/web
-COPY web/package*.json web/build.mjs ./
+COPY web/package*.json web/build.mjs web/tsconfig.json ./
 COPY web/src ./src
 COPY license /src/license
 RUN npm ci --ignore-scripts && npm run build

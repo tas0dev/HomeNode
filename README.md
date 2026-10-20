@@ -39,7 +39,7 @@ cp config.example.yaml config.yaml
 docker compose build
 mkdir -p secrets data
 chmod 700 secrets data
-HOMENODE_IMAGE=$(docker compose images -q server)
+HOMENODE_IMAGE=$(docker compose config --images)
 read -rs -p '管理者パスワード（12文字以上）: ' HOMENODE_PASSWORD
 printf '\n'
 printf '%s\n' "$HOMENODE_PASSWORD" | docker run --rm -i --user "$(id -u):$(id -g)" -v "$PWD/secrets:/secrets" "$HOMENODE_IMAGE" -init-secrets /secrets
