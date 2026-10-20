@@ -1,4 +1,4 @@
-#Requires -RunAsAdministrator
+﻿#Requires -RunAsAdministrator
 $ErrorActionPreference = 'Stop'
 Stop-Service HomeNodeAgent -ErrorAction SilentlyContinue
 & sc.exe delete HomeNodeAgent
